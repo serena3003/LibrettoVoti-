@@ -20,14 +20,20 @@ public class TestLibretto {
 		lib.add(new Voto(25, "Logistica", LocalDate.of(2019, 2, 1)));
 		lib.add(new Voto(27, "Programmazione a Oggetti", LocalDate.of(2019, 1, 25)));
 		
-		List<Voto> venticinque = lib.CercaVoti(25);
+		List<Voto> venticinque = lib.cercaVoti(25);
 		System.out.println(venticinque);
 		
 		Voto a1 = lib.cercaEsame("Analisi I");
 		Voto a3 = lib.cercaEsame("Analisi III");
 		System.out.println(a1);
 		System.out.println(a3);
-
+		
+		Voto giusto = new Voto(18, "Geometria", LocalDate.now());
+		Voto falso = new Voto (28, "Geometria", LocalDate.of(2017, 9, 1));
+		Voto mancante = new Voto(30, "Merendine", LocalDate.now());
+		System.out.format("Il voto %s è %s\n", giusto.toString(),lib.esisteGiaVoto(giusto));
+		System.out.format("Il voto %s è %s\n", falso.toString(),lib.esisteGiaVoto(falso));
+		System.out.format("Il voto %s è %s\n", mancante.toString(),lib.esisteGiaVoto(mancante));
 	}
 
 }
