@@ -19,5 +19,21 @@ public class Libretto {
 	public void add(Voto v) { //PATTERN DELEGATION
 		voti.add(v);
 	}
+	
+	/**
+	 * Seleziona il sottoinsieme di voti che hanno il punteggio specificato
+	 * 
+	 * @param punti punteggio da ricercare
+	 * @return lista di {@link Voto} aventi quel punteggio (eventualmente vuota)
+	 */
+	public List<Voto> CercaVoti(int punti) {
+		List<Voto> result = new ArrayList<>();
+		for (Voto v: this.voti){
+			if(v.getPunti()==punti) {
+				result.add(v);
+			}
+		}
+		return result; 
+	}
 
 }
