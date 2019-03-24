@@ -22,6 +22,11 @@ public class TestLibretto {
 		
 		List<Voto> venticinque = lib.CercaVoti(25);
 		System.out.println(venticinque);
+		
+		Voto a1 = lib.cercaEsame("Analisi I");
+		Voto a3 = lib.cercaEsame("Analisi III");
+		System.out.println(a1);
+		System.out.println(a3);
 
 	}
 
