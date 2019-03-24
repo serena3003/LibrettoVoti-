@@ -34,6 +34,20 @@ public class TestLibretto {
 		System.out.format("Il voto %s è %s\n", giusto.toString(),lib.esisteGiaVoto(giusto));
 		System.out.format("Il voto %s è %s\n", falso.toString(),lib.esisteGiaVoto(falso));
 		System.out.format("Il voto %s è %s\n", mancante.toString(),lib.esisteGiaVoto(mancante));
-	}
+		
+		System.out.format("Il voto %s è in conflitto %s\n", giusto.toString(),lib.votoConflitto(giusto));
+		System.out.format("Il voto %s è in conflitto %s\n", falso.toString(),lib.votoConflitto(falso));
+		System.out.format("Il voto %s è in conflitto %s\n", mancante.toString(),lib.votoConflitto(mancante));
+		
+		System.out.println(lib.add(giusto));
+		System.out.println(lib.add(falso));
+		System.out.println(lib.add(mancante));
+		
+		System.out.println(lib.toString());
+	
+	
+	
+	
+}
 
 }
