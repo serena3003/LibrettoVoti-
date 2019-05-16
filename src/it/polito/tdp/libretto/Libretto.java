@@ -112,5 +112,42 @@ public class Libretto {
 	public String toString() {
 		return this.voti.toString();
 	}
+	
+	public Libretto librettoMigliorato() {
+		Libretto nuovo = new Libretto();
+		for(Voto v : this.voti) { //aggiungo gli stessi voti del primo libretto
+//			nuovo.add(v); 	copia i riferimenti agli oggetti precedenti e li mette nella nuova lista
+//							quando modifico uno si modifica anche l'altro - sono proprio lo stesso oggetto!
+//							quello che voglio io è una copia indipendente - devo fare una NEW con gli stessi attributi del primo oggetto
+			nuovo.add(v.clone()); //creo un clone dell'oggetto precedente
+		}
+		for (Voto v : nuovo.voti) {
+			int punti = v.getPunti();
+			if(punti<24) {
+				punti = punti +1;
+			} 
+			else if(punti <=28) {
+				punti=punti+2;
+			}
+			v.setPunti(punti);
+		}
+		return nuovo;
+	}
+	
+	public void cancellaVotiScarsi() {
+		/*for(Voto v : this.voti) {  PROBLEMA di questo codice: non posso modificare una lista mentre la sto scorrendo
+			if(v.getPunti()<24) {
+				this.voti.remove(v); NON posso cancellare l'elemento su cui sto iterando la lista
+			}
+		}*/
+		
+		List cancellare = new ArrayList<Voto>();
+		for(Voto v : this.voti) {
+			if(v.getPunti()<24) {
+				cancellare.add(v);
+			}
+		}
+		this.voti.removeAll(cancellare);
+	}
 
 }
